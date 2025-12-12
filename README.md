@@ -18,6 +18,4 @@ This is my personal portfolio website built with HTML, CSS.
 - HTML5
 - CSS
 
-## Live Website
 
-[View Live Site](https://muradalizada999.github.io/Portfolio2/)
