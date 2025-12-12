@@ -19,6 +19,6 @@ This is my personal portfolio website built with HTML, CSS.
 - CSS
 
 ## Live Site
-https://github.com/muradalizada999/Portfolio2
+https://muradalizada.github.io/Portfolio2/
 
 
