@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --dark: #1f2937;
+    --light: #6b7280;
+    --bg: #f3f4f6;
+    --white: #ffffff;
+    --border: #e5e7eb;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 50px 0;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo h2 {
+    color: var(--primary);
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-menu a {
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+.hero {
+    background: var(--bg);
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--light);
+}
+
+.description {
+    max-width: 600px;
+    margin: 1rem auto 2rem;
+    color: var(--light);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 25px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-secondary {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.about {
+    background: var(--bg);
+}
+
+.about-text p {
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.timeline-date {
+    color: var(--primary);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.experience-grid,
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.experience-card,
+.simple-project,
+.simple-blog {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
+.company {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.date,
+.blog-date {
+    color: var(--light);
+    font-size: 0.9rem;
+}
+
+.skill-card {
+    background: var(--bg);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.skill-card h3 {
+    color: var(--primary);
+}
+
+.skill-card ul {
+    list-style: none;
+}
+
+.skill-card li {
+    color: var(--light);
+    padding: 0.3rem 0;
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+/* --------- TABLET & MOBILE --------- */
+@media (max-width: 768px) {
+    section {
+        padding: 40px 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .nav-menu {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* --------- SMALL MOBILE --------- */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+}

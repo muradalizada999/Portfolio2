@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f3f4f6;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #1f2937;
+            font-size: 28px;
+        }
+
+        .event-list {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        button {
+            padding: 10px 16px;
+            margin: 5px 5px 0 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .add-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .clear-btn {
+            background: #ef4444;
+            color: white;
+        }
+
+        .delete-btn {
+            background: #f59e0b;
+            color: white;
+            padding: 6px 12px;
+            font-size: 13px;
+            margin-left: auto;
+        }
+
+        #list {
+            margin-top: 20px;
+        }
+
+        .event {
+            background: #ffffff;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .event span {
+            flex: 1;
+            font-size: 15px;
+            color: #1f2937;
+        }
+
+        .event input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .event.done {
+            opacity: 0.6;
+        }
+
+        .event.done span {
+            text-decoration: line-through;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="event-list">
+        <h1>🛒 Shopping List</h1>
+
+        <input type="text" id="name" placeholder="Enter product name">
+        <input type="text" id="date" placeholder="Enter quantity">
+
+        <button class="add-btn" onclick="addEvent()">Add Item</button>
+        <button class="clear-btn" onclick="clearAll()">Clear All</button>
+    </div>
+
+    <div id="list"></div>
+
+    <script>
+        let events = [];
+
+        function addEvent(){
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+
+            if(name && date){
+                events.push({id: Date.now(), name, date, done:false});
+                document.getElementById('name').value = '';
+                document.getElementById('date').value = '';
+                show();
+            }
+        }
+
+        function deleteEvent(id){
+            events = events.filter(e => e.id != id);
+            show();
+        }
+
+        function clearAll(){
+            events = [];
+            show();
+        }
+
+        function toggle(id) {
+            const event = events.find(e => e.id === id);
+            event.done = !event.done;
+            show();
+        }
+
+        function show(){
+            let html = '';
+
+            for (let e of events) {
+                html += `
+                    <div class="event ${e.done ? 'done' : ''}">
+                        <input type="checkbox" ${e.done ? 'checked' : ''} onchange="toggle(${e.id})">
+                        <span>${e.name} × ${e.date}</span>
+                        <button class="delete-btn" onclick="deleteEvent(${e.id})">Delete</button>
+                    </div>
+                `;
+            }
+
+            document.getElementById('list').innerHTML = html;
+        }
+    </script>
+
+</body>
+</html>
